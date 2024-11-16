@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sidebar-width: 280px;
+  --header-height: 60px;
+  --bottom-panel-height: 300px;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.dashboard-layout {
+  @apply h-screen flex flex-col;
+}
+
+.main-content {
+  @apply flex-1 flex overflow-hidden;
+}
+
+.left-sidebar {
+  @apply w-[var(--sidebar-width)] border-r bg-card flex flex-col;
+  min-width: var(--sidebar-width);
+}
+
+.right-sidebar {
+  @apply w-[var(--sidebar-width)] border-l bg-card;
+  min-width: var(--sidebar-width);
+}
+
+.bottom-panel {
+  @apply h-[var(--bottom-panel-height)] border-t bg-card;
+}
+
+.preview-area {
+  @apply flex-1 bg-background overflow-auto;
+}
+
+.draggable-item {
+  @apply p-3 mb-2 bg-card rounded-md border shadow-sm cursor-move 
+  hover:shadow-md transition-shadow duration-200;
+}
+
+.dropzone {
+  @apply min-h-[100px] border-2 border-dashed rounded-lg p-4 
+  transition-colors duration-200;
+}
+
+.dropzone.active {
+  @apply border-primary bg-primary/5;
+}
+
+.component-list {
+  @apply p-4 space-y-2 overflow-y-auto;
+}
+
+.preview-container {
+  @apply p-6 bg-background rounded-lg shadow-sm min-h-[400px];
+}
+
+.code-editor {
+  @apply font-mono text-sm p-4 bg-card rounded-md;
+}
+
+.toolbar {
+  @apply flex items-center gap-2 p-2 border-b;
+}
+
+.panel-header {
+  @apply flex items-center justify-between p-4 border-b bg-card;
+}
+
+.resizable-handle {
+  @apply absolute w-1 hover:bg-primary/20 cursor-col-resize transition-colors;
+}
+
+.tabs {
+  @apply flex border-b;
+}
+
+.tab {
+  @apply px-4 py-2 border-b-2 cursor-pointer transition-colors;
+}
+
+.tab.active {
+  @apply border-primary text-primary;
+}
